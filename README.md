@@ -5,10 +5,7 @@
 [![React](https://img.shields.io/badge/react-v17.0.1-blue)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/typescript-v4.1.2-blue)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/tailwindcss-v2.0.3-blue)](https://tailwindcss.com)
-[![GitHub](https://img.shields.io/badge/github-v4.0.0-blue)](https://github.com)
-[![GitHub API](https://img.shields.io/badge/github--api-v4-blue)](https://docs.github.com/en/free-pro-team@latest/rest)
-[![GitHub Discussions](https://img.shields.io/badge/github--discussions-v0.0.1-blue)](https://docs.github.com/en/free-pro-team@latest/discussions)
-[![GitHub Issues](https://img.shields.io)]
+[![Github Issues API](https://img.shields.io/badge/github--issues--api-v0.0.1-blue)](https://docs.github.com/en/free-pro-team@latest/rest/reference/issues)
 
 Welcome to my personal blog website, where I share my thoughts and insights on linguistics and software engineering topics. This Next.js-based blog is designed to provide informative and engaging content for readers interested in these two fields.
 
