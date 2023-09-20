@@ -4,8 +4,9 @@ import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import blogImage from '@/images/blog_image.jpg'
 import Image from 'next/image'
 import { useThemeContext } from '@/hooks/useThemeContext'
+import { postProps } from '@/types/types'
 
-export default function GetSinglePost({ post }: any) {
+export default function GetSinglePost({ post }: { post: postProps }) {
   const { isDark } = useThemeContext()
   return (
     <div
@@ -51,35 +52,8 @@ export default function GetSinglePost({ post }: any) {
           </div>
         </div>
         <div className="mt-24 leading-8 w-[1100px]">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            eveniet distinctio ex culpa modi perferendis quod dolore rerum
-            mollitia tenetur ipsa optio, accusantium iusto facilis blanditiis
-            voluptas! Harum unde magnam maxime repudiandae qui. Impedit, harum
-            quas fuga commodi qui magnam illo blanditiis suscipit? Eligendi sint
-            eveniet distinctio illo labore similique dignissimos earum in dicta,
-            obcaecati neque placeat reiciendis voluptates architecto doloribus
-            fugit. Quod dignissimos sapiente aliquam molestiae quam
-            exercitationem praesentium, cupiditate, ducimus animi accusamus illo
-            iusto veniam tempora quos perspiciatis nostrum quidem a dolorem,
-            nulla aut officiis recusandae quis. Vel, omnis. Numquam excepturi
-            vel earum nesciunt eaque porro ducimus a.
-          </p>
+          <p>{post.content}</p>
           <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            eveniet distinctio ex culpa modi perferendis quod dolore rerum
-            mollitia tenetur ipsa optio, accusantium iusto facilis blanditiis
-            voluptas! Harum unde magnam maxime repudiandae qui. Impedit, harum
-            quas fuga commodi qui magnam illo blanditiis suscipit? Eligendi sint
-            eveniet distinctio illo labore similique dignissimos earum in dicta,
-            obcaecati neque placeat reiciendis voluptates architecto doloribus
-            fugit. Quod dignissimos sapiente aliquam molestiae quam
-            exercitationem praesentium, cupiditate, ducimus animi accusamus illo
-            iusto veniam tempora quos perspiciatis nostrum quidem a dolorem,
-            nulla aut officiis recusandae quis. Vel, omnis. Numquam excepturi
-            vel earum nesciunt eaque porro ducimus a.
-          </p>
         </div>
       </article>
     </div>
