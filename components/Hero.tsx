@@ -70,7 +70,7 @@ export default function Hero({ data }: any) {
   return (
     <main
       className={`${
-        isDark ? 'dark' : ''
+        isDark ? 'dark' : 'light'
       } transition-all duration-75 flex flex-col items-center justify-center padding-container`}
     >
       <div

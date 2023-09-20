@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav
       className={`flex items-center ${
-        isDark ? 'dark' : ''
+        isDark ? 'dark' : 'light'
       } transition-all duration-75 nav-container`}
     >
       <Link

@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   @apply bg-gray-100 text-gray-800;
-}
+} */
 
 .padding-container {
   @apply pt-8 px-20;
