@@ -1,8 +1,9 @@
 import React from 'react'
 import { ParamsProps } from '@/types/types'
 import GetSinglePost from '@/components/GetSinglePost'
+import { slugProps } from '@/types/types'
 
-const getSinglePost = async (slug: string) => {
+const getSinglePost = async (slug: slugProps) => {
   const post = await fetch(`http://localhost:3500/api/v1/posts/${slug}`, {
     cache: 'no-store'
   })

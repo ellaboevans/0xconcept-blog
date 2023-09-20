@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero'
+import { dataProps } from '@/types/types'
 
 const getPosts = async () => {
   const res = await fetch('http://localhost:3500/api/v1/posts', {
@@ -7,15 +8,6 @@ const getPosts = async () => {
   const posts = await res.json()
   return posts
 }
-
-type dataProps = {
-  _id: string
-  title: string
-  summary: string
-  content: string
-  slug: string
-  createdAt: string
-}[]
 
 export default async function Home() {
   const output: dataProps = await getPosts()
