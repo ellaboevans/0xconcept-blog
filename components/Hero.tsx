@@ -6,66 +6,9 @@ import { HiLink } from 'react-icons/hi2'
 import blogImage from '../images/blog_image.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
+import { dataProps } from '@/types/types'
 
-// const data = [
-//   {
-//     id: 1,
-//     title: 'UX Review Presentations',
-//     description:
-//       'The latest industry news, technologies, linguistic forums and resources',
-//     tags: ['Design', 'Research', 'Coding'],
-//     img: blogImage,
-//     slug: 'ux-review-presentations'
-//   },
-//   {
-//     id: 2,
-//     title: 'Linguistics and the Web',
-//     description:
-//       'The latest industry news, technologies, linguistic forums and resources',
-//     tags: ['Design', 'Research', 'Coding'],
-//     img: blogImage,
-//     slug: 'linguistics-and-the-web'
-//   },
-//   {
-//     id: 3,
-//     title: 'Linguistics and the Web',
-//     description:
-//       'The latest industry news, technologies, linguistic forums and resources',
-//     tags: ['Design', 'Research', 'Coding'],
-//     img: blogImage,
-//     slug: 'linguistics-and-the-web'
-//   },
-//   {
-//     id: 4,
-//     title: 'Linguistics and the Web',
-//     description:
-//       'The latest industry news, technologies, linguistic forums and resources',
-//     tags: ['Design', 'Research', 'Coding'],
-//     img: blogImage,
-//     slug: 'linguistics-and-the-web'
-//   },
-//   {
-//     id: 5,
-//     title: 'Linguistics and the Web',
-//     description:
-//       'The latest industry news, technologies, linguistic forums and resources',
-//     tags: ['Design', 'Research', 'Coding'],
-//     img: blogImage,
-//     slug: 'linguistics-and-the-web'
-//   }
-// ]
-type dataProps = {
-  _id: string
-  title: string
-  summary: string
-  content: string
-  slug: string
-  author: string
-  createdAt: string
-  tag: string
-}
-export default function Hero({ data }: any) {
-  console.log(data)
+export default function Hero({ data }: { data: dataProps }) {
   const { isDark } = useThemeContext()
   return (
     <main
@@ -88,7 +31,7 @@ export default function Hero({ data }: any) {
       <article className="flex flex-col items-center w-[90dvw]  overflow-x-hidden">
         <div className="grid grid-cols-3 mb-10 gap-5 place-items-center mt-6">
           {data &&
-            data.map((item: dataProps) => (
+            data.map((item) => (
               <Link href={`/${item.slug}`} className="w-[350px]" key={item._id}>
                 <Image
                   src={blogImage}
