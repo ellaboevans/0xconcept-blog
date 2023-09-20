@@ -34,7 +34,13 @@ export default function GetSinglePost({ post }: any) {
                 {post.summary}
               </h5>
               <div className="mt-3 flex items-center gap-5 ">
-                {post.tag ? <p className="tag">{post.tag}</p> : ''}
+                {post.tag ? (
+                  <p className="tag">{post.tag}</p>
+                ) : (
+                  <p className={`tag ${isDark ? '' : 'card-tag-dark'}`}>
+                    Test Tag
+                  </p>
+                )}
               </div>
             </div>
             <h1
