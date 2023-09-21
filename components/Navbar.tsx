@@ -27,7 +27,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className={`font-bold text-2xl ${mochain.variable} font-mochain`}
+          className={`font-bold text-xl ${mochain.variable} font-mochain`}
         >
           OxConcept
         </Link>
