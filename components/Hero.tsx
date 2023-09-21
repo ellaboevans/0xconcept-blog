@@ -15,7 +15,9 @@ export default function Hero({ data }: { data: dataProps }) {
         className={`text-center space-y-4 mb-5 ${mochain.variable} font-mochain`}
       >
         <p className="text-lg">The Writer | The Linguist | The Coder</p>
-        <h1 className="text-5xl font-semibold">Writings from our team</h1>
+        <h1 className="leading-[3.2rem] md:leading-none text-5xl font-semibold">
+          Writings from our team
+        </h1>
         <h5
           className={`${overusedGrotesk.variable} font-overusedGrotesk text-xl tracking-normal`}
         >
@@ -23,11 +25,15 @@ export default function Hero({ data }: { data: dataProps }) {
           resources.
         </h5>
       </div>
-      <article className="flex flex-col items-center w-[90dvw]  overflow-x-hidden">
+      <article className="flex flex-col items-center w-full md:max-w-[90dvw] overflow-x-hidden">
         <div className="grid grid-cols-1 md:grid-cols-3 mb-10 gap-5 place-items-center mt-6">
           {data &&
             data.map((item) => (
-              <Link href={`/${item.slug}`} className="w-[350px]" key={item._id}>
+              <Link
+                href={`/${item.slug}`}
+                className="w-[350px] md:w-[305px]"
+                key={item._id}
+              >
                 <Image
                   src={blogImage}
                   alt="Test"
