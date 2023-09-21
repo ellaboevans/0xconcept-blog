@@ -12,7 +12,7 @@ const getPosts = async () => {
 export default async function Home() {
   const output: dataProps = await getPosts()
   return (
-    <div className="flex flex-col items-center overflow-x-hidden">
+    <div>
       <Hero data={output} />
     </div>
   )

@@ -1,18 +1,11 @@
-'use client'
-import { useThemeContext } from '@/hooks/useThemeContext'
 import React from 'react'
 import { year } from '@/utils/FooterDate'
 import { overusedGrotesk } from '@/utils/Fonts'
 
 export default function Footer() {
-  const { isDark } = useThemeContext()
   return (
     <footer
-      className={`${
-        isDark ? 'dark' : 'light'
-      }  py-5 flex flex-col items-center justify-center border-t ${
-        overusedGrotesk.variable
-      } font-overusedGrotesk text-lg`}
+      className={` py-5 flex flex-col items-center justify-center border-t ${overusedGrotesk.variable} font-overusedGrotesk text-lg`}
     >
       <h1 className="text-center ">
         Made with <span className="text-xl">&#9829;</span> by

@@ -1,21 +1,16 @@
-'use client'
 import React from 'react'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import blogImage from '@/images/blog_image.jpg'
 import Image from 'next/image'
-import { useThemeContext } from '@/hooks/useThemeContext'
 import { postProps } from '@/types/types'
 
 export default function GetSinglePost({ post }: { post: postProps }) {
-  const { isDark } = useThemeContext()
   return (
     <div
-      className={` ${
-        isDark ? 'dark' : 'light'
-      } transition-all duration-75 flex flex-col items-center padding-container`}
+      className={` transition-all duration-75 flex flex-col items-center padding-container`}
     >
       <article className="pb-24">
-        <div className="w-[1100px] h-[500px]  mb-4 bg-slate-400 relative">
+        <div className="md:w-[1100px] md:h-[500px] mt-20 mb-4 bg-slate-400 relative">
           <Image
             src={blogImage}
             alt="Testing"
@@ -38,9 +33,7 @@ export default function GetSinglePost({ post }: { post: postProps }) {
                 {post.tag ? (
                   <p className="tag">{post.tag}</p>
                 ) : (
-                  <p className={`tag ${isDark ? '' : 'card-tag-dark'}`}>
-                    Test Tag
-                  </p>
+                  <p className={`tag`}>Test Tag</p>
                 )}
               </div>
             </div>

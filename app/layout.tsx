@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import ThemeContextProvider from '@/contexts/ThemeContextProvider'
 
 export const metadata: Metadata = {
   title: '0xConcept | Blog',
@@ -15,13 +14,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body>
-        <ThemeContextProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeContextProvider>
+    <html lang="en">
+      <body className="bg-[rgb(36,36,36)] text-white">
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   )

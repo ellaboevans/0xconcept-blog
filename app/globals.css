@@ -2,34 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  @apply bg-gray-100 text-gray-800;
-} */
-
-.padding-container {
-  @apply pt-8 px-20;
-}
-
-.nav-container {
-  @apply pt-8 px-44;
-}
-
-.dark {
-  @apply dark:bg-gray-800 dark:text-gray-100;
-}
-
-.light {
-  @apply bg-gray-100 text-gray-800;
-}
-
 .tag {
-  @apply px-3 rounded-full outline text-sm outline-1 outline-gray-100 py-[0.5px];
-}
-
-.card-tag-dark {
-  @apply outline outline-1 dark:outline-gray-800;
-}
-
-.card-tag-light {
-  @apply outline outline-1 outline-gray-100;
+  @apply px-3 rounded-full outline outline outline-1 outline-gray-100 text-sm outline-1 outline-gray-100 py-[0.5px];
 }

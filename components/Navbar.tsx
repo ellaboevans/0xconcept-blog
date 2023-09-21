@@ -1,36 +1,59 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { FiSun, FiMoon } from 'react-icons/fi'
-import { useThemeContext } from '@/hooks/useThemeContext'
 import { mochain } from '@/utils/Fonts'
+import { motion } from 'framer-motion'
+import { SocialIcon } from 'react-social-icons'
 
 export default function Navbar() {
-  const { isDark, changeTheme } = useThemeContext()
   return (
     <nav
-      className={`flex items-center ${
-        isDark ? 'dark' : 'light'
-      } transition-all duration-75 nav-container`}
+      className={`flex items-center mx-auto justify-between bg-transparent transition-all duration-75 p-5 sticky top-0 backdrop-blur max-w-[80dvw] md:max-w-[70dvw] z-10`}
     >
-      <Link
-        href="/"
-        className={`float-right font-bold text-2xl flex-1 ${mochain.variable} font-mochain`}
+      <motion.div
+        initial={{
+          x: -100,
+          opacity: 0,
+          scale: 0.5
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1
+        }}
+        transition={{
+          duration: 0.5
+        }}
       >
-        OxConcept
-      </Link>
-      <div className="flex items-center space-x-5">
-        <button
-          className={`flex items-center justify-center text-xl w-9 h-9 rounded-full  ${
-            isDark ? 'light' : 'dark'
-          }`}
-          aria-label="Toggle Dark Mode"
-          type="button"
-          onClick={() => changeTheme()}
+        <Link
+          href="/"
+          className={`font-bold text-2xl ${mochain.variable} font-mochain`}
         >
-          {isDark ? <FiSun /> : <FiMoon />}
-        </button>
-      </div>
+          OxConcept
+        </Link>
+      </motion.div>
+      <motion.div
+        initial={{
+          x: 100,
+          opacity: 0,
+          scale: 0.5
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1
+        }}
+        transition={{
+          duration: 1
+        }}
+        className="flex items-center gap-5"
+      >
+        <SocialIcon
+          url="https://github.com/ellaboevans"
+          bgColor="transparent"
+          fgColor="white"
+        />
+      </motion.div>
     </nav>
   )
 }
