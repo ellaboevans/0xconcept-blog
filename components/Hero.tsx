@@ -31,7 +31,7 @@ export default function Hero({ data }: { data: dataProps }) {
             data.map((item) => (
               <Link
                 href={`/${item.slug}`}
-                className="w-[350px] md:w-[305px] "
+                className="w-[350px] md:w-[305px] md:h-[453px]"
                 key={item._id}
               >
                 <Image
