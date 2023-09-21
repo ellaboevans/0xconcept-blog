@@ -7,7 +7,7 @@ export default function Footer() {
     <footer
       className={` py-5 flex flex-col items-center justify-center border-t ${overusedGrotesk.variable} font-overusedGrotesk text-base max-w-[80dvw] md:max-w-[70dvw] mx-auto`}
     >
-      <h1 className="text-center ">
+      <h5 className="text-center ">
         Made with <span>&#9829;</span> by
         <span className="ml-2">
           <a href="https://linkedin.com/in/eelabo" className="underline">
@@ -15,7 +15,7 @@ export default function Footer() {
           </a>
           - Oxconcept
         </span>
-      </h1>
+      </h5>
       <p>&copy; {year()} All Rights Reserved.</p>
     </footer>
   )
