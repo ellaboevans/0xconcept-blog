@@ -31,13 +31,13 @@ export default function Hero({ data }: { data: dataProps }) {
             data.map((item) => (
               <Link
                 href={`/${item.slug}`}
-                className="w-[350px] md:w-[305px]"
+                className="w-[350px] md:w-[305px] "
                 key={item._id}
               >
                 <Image
                   src={blogImage}
                   alt="Test"
-                  className="w-full h-60 object-cover"
+                  className="w-full h-60 object-cover hover:grayscale transition duration-75"
                 />
                 <div className="p-3">
                   <p
