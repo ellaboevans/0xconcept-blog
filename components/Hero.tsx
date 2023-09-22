@@ -1,7 +1,6 @@
 import React from 'react'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import { HiLink } from 'react-icons/hi2'
-import blogImage from '../images/blog_image.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { dataProps } from '@/types/types'
