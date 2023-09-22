@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
+import { toast } from 'react-hot-toast'
 
 type Props = {}
 
@@ -14,7 +15,7 @@ function CreatePost({}: Props) {
   const [files, setFiles] = useState<any>('')
   const [content, setContent] = useState('')
 
-  const submitNewPost = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitNewPost = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const formData = new FormData()
@@ -25,10 +26,23 @@ function CreatePost({}: Props) {
     formData.set('image', files[0])
     formData.set('content', content)
 
-    fetch('http://localhost:3500/api/v1/posts', {
+    const response = await fetch('http://localhost:3500/api/v1/posts', {
       method: 'POST',
       body: formData
     })
+
+    if (response.status === 201) {
+      toast.success('Yayy🎉! Post created successfully')
+    } else {
+      toast.error('Oops👎! There was an error while creating post')
+    }
+
+    setTitle('')
+    setAuthor('')
+    setSummary('')
+    setTag('')
+    setFiles('')
+    setContent('')
   }
 
   return (
