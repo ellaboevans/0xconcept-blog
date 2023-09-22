@@ -1,9 +1,10 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import { toast } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
@@ -14,6 +15,9 @@ function CreatePost({}: Props) {
   const [tag, setTag] = useState('')
   const [files, setFiles] = useState<any>('')
   const [content, setContent] = useState('')
+
+  //Router
+  const router = useRouter()
 
   const submitNewPost = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -33,6 +37,7 @@ function CreatePost({}: Props) {
 
     if (response.status === 201) {
       toast.success('Yayy🎉! Post created successfully')
+      router.push('/')
     } else {
       toast.error('Oops👎! There was an error while creating post')
     }

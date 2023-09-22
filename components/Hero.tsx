@@ -39,7 +39,7 @@ export default function Hero({ data }: { data: dataProps }) {
                   className="w-full h-60 object-cover hover:grayscale transition duration-75"
                   width={305}
                   height={453}
-                  // quality={100}
+                  quality={90}
                 />
                 <div className="p-3">
                   <p

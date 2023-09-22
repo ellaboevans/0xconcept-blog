@@ -1,6 +1,5 @@
 import React from 'react'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
-import blogImage from '@/images/blog_image.jpg'
 import Image from 'next/image'
 import { postProps } from '@/types/types'
 
@@ -10,13 +9,19 @@ export default function GetSinglePost({ post }: { post: postProps }) {
       className={` transition-all duration-75 flex flex-col items-center max-w-[80dvw] md:max-w-[70dvw] mx-auto`}
     >
       <article>
-        <div className="w-[80dvw] md:w-[70dvw] mx-auto mt-10 mb-4 bg-slate-400">
+        <h1
+          className={`text-4xl mt-10 font-semibold ${mochain.variable} font-mochain`}
+        >
+          {post.title}
+        </h1>
+        <div className="w-[80dvw] md:w-[70dvw] mx-auto mt-10 mb-4 bg-slate-400 rounded-xl">
           <Image
             src={`http://localhost:3500/${post.image}`}
             alt="Testing"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-xl"
             width={1000}
             height={500}
+            quality={90}
           />
         </div>
         <div className="flex flex-col items-start justify-center my-5  text-white">
@@ -39,11 +44,7 @@ export default function GetSinglePost({ post }: { post: postProps }) {
             )}
           </div>
         </div>
-        <h1
-          className={`text-4xl mt-10 font-semibold ${mochain.variable} font-mochain`}
-        >
-          {post.title}
-        </h1>
+
         <div className="mt-5 leading-8 tracking-normal text-left">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
           <br />
