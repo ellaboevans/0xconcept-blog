@@ -26,18 +26,21 @@ export default function Hero({ data }: { data: dataProps }) {
         </h5>
       </div>
       <article className="flex flex-col items-center w-full md:max-w-[90dvw] overflow-x-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-3 mb-10 gap-5 place-items-center mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 mb-10 gap-5 place-items-center mt-6 ">
           {data &&
             data.map((item) => (
               <Link
                 href={`/${item.slug}`}
-                className="w-[350px] md:w-[305px] md:h-[453px]"
+                className="w-[350px] md:w-[305px] md:h-[453px] relative"
                 key={item._id}
               >
                 <Image
-                  src={blogImage}
+                  src={`http://localhost:3500/${item.image}`}
                   alt="Test"
                   className="w-full h-60 object-cover hover:grayscale transition duration-75"
+                  width={305}
+                  height={453}
+                  // quality={100}
                 />
                 <div className="p-3">
                   <p
