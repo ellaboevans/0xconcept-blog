@@ -8,7 +8,7 @@ export default function Footer() {
       className={` py-5 flex flex-col items-center justify-center border-t ${overusedGrotesk.variable} font-overusedGrotesk text-base max-w-[80dvw] md:max-w-[70dvw] mx-auto`}
     >
       <h5 className="text-center ">
-        Made with <span>&#9829;</span> by
+        Made with <span>❤️</span> by
         <span className="ml-2">
           <a href="https://linkedin.com/in/eelabo" className="underline">
             Evans Elabo
