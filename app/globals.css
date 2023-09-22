@@ -5,3 +5,11 @@
 .tag {
   @apply px-3 rounded-full outline outline outline-1 outline-gray-100 text-sm outline-1 outline-gray-100 py-[0.5px];
 }
+
+.input-field {
+  @apply px-3 py-2 outline outline-1 outline-gray-100 w-[395px] md:w-[700px];
+}
+
+.quill-field {
+  @apply w-[400px] h-[350px] md:w-[700px] md:h-[300px];
+}
