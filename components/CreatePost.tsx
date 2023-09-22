@@ -87,6 +87,7 @@ function CreatePost({}: Props) {
           type="file"
           className="input-field"
           name="image"
+          required
           onChange={(e) => setFiles(e.target.files)}
         />
         <ReactQuill
