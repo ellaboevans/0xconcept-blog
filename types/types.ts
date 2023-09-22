@@ -13,6 +13,7 @@ export type dataProps = {
   author: string
   createdAt: string
   tag: string
+  image: string
 }[]
 
 export type postProps = {
@@ -24,6 +25,7 @@ export type postProps = {
   author: string
   createdAt: string
   tag: string
+  image: string
 }
 
 export type slugProps = string
