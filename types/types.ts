@@ -28,6 +28,8 @@ export type postProps = {
   image: string
 }
 
+export type fileType = any
+
 export type slugProps = string
 
 export type ThemeContextProviderProps = {

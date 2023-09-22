@@ -1,23 +1,22 @@
 'use client'
 import React, { useState } from 'react'
-import { mochain, overusedGrotesk } from '@/utils/Fonts'
+import { overusedGrotesk } from '@/utils/Fonts'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
+import { fileType } from '@/types/types'
 
-/* only load and renderthe Quill editor when running 
+/* only load and render the Quill editor when running 
 in the browser*/
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 import 'react-quill/dist/quill.snow.css'
-
-type files = any
 
 function CreatePost() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [summary, setSummary] = useState('')
   const [tag, setTag] = useState('')
-  const [files, setFiles] = useState<files>('')
+  const [files, setFiles] = useState<fileType>('')
   const [content, setContent] = useState('')
 
   //Router
