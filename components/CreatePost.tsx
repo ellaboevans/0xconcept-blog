@@ -1,19 +1,23 @@
 'use client'
 import React, { useState } from 'react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
 
-type Props = {}
+/* only load and renderthe Quill editor when running 
+in the browser*/
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
+import 'react-quill/dist/quill.snow.css'
 
-function CreatePost({}: Props) {
+type files = any
+
+function CreatePost() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [summary, setSummary] = useState('')
   const [tag, setTag] = useState('')
-  const [files, setFiles] = useState<any>('')
+  const [files, setFiles] = useState<files>('')
   const [content, setContent] = useState('')
 
   //Router
@@ -104,7 +108,7 @@ function CreatePost({}: Props) {
       </div>
       <button
         type="submit"
-        className={`bg-black mt-10 text-white font-semibold py-3 px-6 rounded-lg ${mochain.variable} font-mochain`}
+        className={`bg-black mt-10 text-white font-semibold py-3 px-6 rounded-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
       >
         Submit
       </button>
