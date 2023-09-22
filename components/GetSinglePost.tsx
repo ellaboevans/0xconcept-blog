@@ -12,9 +12,11 @@ export default function GetSinglePost({ post }: { post: postProps }) {
       <article>
         <div className="w-[80dvw] md:w-[70dvw] mx-auto mt-10 mb-4 bg-slate-400">
           <Image
-            src={blogImage}
+            src={`http://localhost:3500/${post.image}`}
             alt="Testing"
             className="w-full h-full object-cover"
+            width={1000}
+            height={500}
           />
         </div>
         <div className="flex flex-col items-start justify-center my-5  text-white">
@@ -43,7 +45,7 @@ export default function GetSinglePost({ post }: { post: postProps }) {
           {post.title}
         </h1>
         <div className="mt-5 leading-8 tracking-normal text-left">
-          <p>{post.content}</p>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
           <br />
         </div>
       </article>
