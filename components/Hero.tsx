@@ -45,7 +45,13 @@ export default function Hero({ data }: { data: dataProps }) {
                   <p
                     className={`text-base flex items-center space-x-2 font-bold mb-3 tracking-wider ${overusedGrotesk.variable} font-overusedGrotesk`}
                   >
-                    <span>{item.author}</span>
+                    {item.author && (
+                      <span>
+                        {' '}
+                        {item.author.firstName} {item.author.lastName}
+                      </span>
+                    )}
+
                     <span> &bull; </span>
                     <span>
                       {new Date(item.createdAt).toString().slice(4, 15)}
