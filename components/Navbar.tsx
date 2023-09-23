@@ -21,7 +21,7 @@ export default function Navbar() {
 
     if (response.status === 200) {
       toast.success('Logout successful')
-      router.replace('/')
+      router.push('/')
     } else {
       toast.error('Logout failed')
     }
