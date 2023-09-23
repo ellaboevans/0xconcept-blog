@@ -7,9 +7,9 @@
 }
 
 .input-field {
-  @apply px-3 py-2 outline outline-1 outline-gray-100 w-[395px] md:w-[700px];
+  @apply px-3 py-2 outline outline-1 outline-gray-100 w-[398px] md:w-[700px];
 }
 
 .quill-field {
-  @apply w-[400px] h-[350px] md:w-[700px] md:h-[300px];
+  @apply w-[400px] h-[340px] md:w-[700px] md:h-[300px];
 }
