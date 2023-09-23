@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import { fileType } from '@/types/types'
+import { modules, formats } from '@/utils/QuillModules'
 
 /* only load and render the Quill editor when running 
 in the browser*/
@@ -13,7 +14,6 @@ import 'react-quill/dist/quill.snow.css'
 
 function CreatePost() {
   const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
   const [summary, setSummary] = useState('')
   const [tag, setTag] = useState('')
   const [files, setFiles] = useState<fileType>('')
@@ -27,7 +27,6 @@ function CreatePost() {
 
     const formData = new FormData()
     formData.set('title', title)
-    formData.set('author', author)
     formData.set('summary', summary)
     formData.set('tag', tag)
     formData.set('image', files[0])
@@ -35,6 +34,7 @@ function CreatePost() {
 
     const response = await fetch('http://localhost:3500/api/v1/posts', {
       method: 'POST',
+      credentials: 'include',
       body: formData
     })
 
@@ -46,7 +46,6 @@ function CreatePost() {
     }
 
     setTitle('')
-    setAuthor('')
     setSummary('')
     setTag('')
     setFiles('')
@@ -66,14 +65,6 @@ function CreatePost() {
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Author"
-          className="input-field"
-          name="author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
         />
         <input
           type="text"
@@ -100,6 +91,8 @@ function CreatePost() {
         />
         <ReactQuill
           theme="snow"
+          modules={modules}
+          formats={formats}
           value={content}
           onChange={setContent}
           className="quill-field"
@@ -107,7 +100,7 @@ function CreatePost() {
       </div>
       <button
         type="submit"
-        className={`bg-black mt-10 w-full text-white font-semibold py-3 px-6 rounded-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
+        className={`bg-black mt-16 w-full md:w-[700px] text-white font-semibold py-3 px-6 rounded-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
       >
         Submit
       </button>
