@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 type Props = {}
 
 export default function Register({}: Props) {
+  const [firstName, setfirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -18,10 +20,18 @@ export default function Register({}: Props) {
     e.preventDefault()
 
     const userData = {
+      firstName,
+      lastName,
       username,
       email,
       password,
       confirmPassword
+    }
+
+    //Checking for passwords length
+    if (password.length < 8) {
+      toast.error('Oops👎! Password must be at least 8 characters')
+      return
     }
 
     //Checking for Password Match
@@ -47,6 +57,8 @@ export default function Register({}: Props) {
       toast.success('Yayy🎉! You have successfully registered for an account')
       router.push('/auth/login')
     }
+    setfirstName('')
+    setLastName('')
     setUsername('')
     setEmail('')
     setPassword('')
@@ -67,6 +79,22 @@ export default function Register({}: Props) {
         className="flex flex-col items-center justify-center gap-5 mt-10"
         onSubmit={registerUser}
       >
+        <input
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          className="input-field"
+          value={firstName}
+          onChange={(e) => setfirstName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          className="input-field"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
         <input
           type="text"
           placeholder="Username"
