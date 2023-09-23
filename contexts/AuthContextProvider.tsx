@@ -24,7 +24,7 @@ export default function AuthContextProvider({ children }: Props) {
         }
       )
       const userData = await response.json()
-      setUsername(userData.username)
+      setUsername(userData.firstName)
     }
     getUsername()
   }, [])
