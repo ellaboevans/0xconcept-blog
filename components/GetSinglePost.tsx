@@ -28,7 +28,12 @@ export default function GetSinglePost({ post }: { post: postProps }) {
           <p
             className={`text-base font-bold mb-3 tracking-wider ${overusedGrotesk.variable} font-overusedGrotesk`}
           >
-            <span>{post.author}</span> <span> &bull; </span>
+            {post.author && (
+              <span>
+                {post.author.firstName} {post.author.lastName}
+              </span>
+            )}{' '}
+            <span> &bull; </span>
             <span>{new Date(post.createdAt).toString().slice(4, 15)}</span>
           </p>
           <h5
