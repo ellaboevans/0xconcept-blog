@@ -39,10 +39,10 @@ function CreatePost() {
     })
 
     if (response.status === 201) {
-      toast.success('Yayy🎉! Post created successfully')
+      toast.success('Yayy🎉! You have successfully published a new post')
       router.push('/')
     } else {
-      toast.error('Oops👎! There was an error while creating post')
+      toast.error('Oops👎! Something went wrong, please try again')
     }
 
     setTitle('')
@@ -107,7 +107,7 @@ function CreatePost() {
       </div>
       <button
         type="submit"
-        className={`bg-black mt-10 text-white font-semibold py-3 px-6 rounded-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
+        className={`bg-black mt-10 w-full text-white font-semibold py-3 px-6 rounded-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
       >
         Submit
       </button>
