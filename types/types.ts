@@ -10,7 +10,11 @@ export type dataProps = {
   summary: string
   content: string
   slug: string
-  author: string
+  author: {
+    _id: string
+    firstName: string
+    lastName: string
+  }
   createdAt: string
   tag: string
   image: string
@@ -22,7 +26,11 @@ export type postProps = {
   summary: string
   content: string
   slug: string
-  author: string
+  author: {
+    _id: string
+    firstName: string
+    lastName: string
+  }
   createdAt: string
   tag: string
   image: string
