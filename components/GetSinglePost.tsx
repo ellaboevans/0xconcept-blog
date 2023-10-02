@@ -16,7 +16,7 @@ export default function GetSinglePost({ post }: { post: postProps }) {
         </h1>
         <div className="w-[80dvw] md:w-[70dvw] mx-auto mt-10 mb-4 bg-slate-400 rounded-xl">
           <Image
-            src={`https://ox-blog-api.onrender.com/${post.image}`}
+            src={`http://localhost:3500/${post.image}`}
             alt="Testing"
             className="w-full h-full object-cover rounded-xl"
             width={1000}
