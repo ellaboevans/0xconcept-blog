@@ -21,6 +21,7 @@ export default function AuthContextProvider({ children }: Props) {
         const response = await fetch(
           'http://localhost:3500/api/v1/auth/profile',
           {
+            method: 'GET',
             credentials: 'include'
           }
         )
@@ -32,7 +33,6 @@ export default function AuthContextProvider({ children }: Props) {
         const contentType = response.headers.get('content-type')
         if (contentType && contentType.includes('application/json')) {
           const userData = await response.json()
-          console.log(userData)
           setUsername(userData.firstName)
         } else {
           throw new Error('Response is not in JSON format')
