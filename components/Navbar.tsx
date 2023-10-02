@@ -13,19 +13,22 @@ export default function Navbar() {
 
   const router = useRouter()
 
-  const handleLogout = async () => {
-    const response = await fetch('http://localhost:3500/api/v1/auth/logout', {
-      method: 'POST',
-      credentials: 'include'
-    })
+  // const handleLogout = async () => {
+  //   const response = await fetch(
+  //     'https://ox-blog-api.onrender.com/api/v1/auth/logout',
+  //     {
+  //       method: 'POST',
+  //       credentials: 'include'
+  //     }
+  //   )
 
-    if (response.status === 200) {
-      toast.success('Logout successful')
-      router.push('/')
-    } else {
-      toast.error('Logout failed')
-    }
-  }
+  //   if (response.status === 200) {
+  //     toast.success('Logout successful')
+  //     router.push('/')
+  //   } else {
+  //     toast.error('Logout failed')
+  //   }
+  // }
 
   return (
     <nav
@@ -75,7 +78,7 @@ export default function Navbar() {
           fgColor="white"
         />
         <>
-          {username ? (
+          {/* {username ? (
             <button onClick={handleLogout} className="underline">
               Logout
             </button>
@@ -83,7 +86,7 @@ export default function Navbar() {
             <Link href="/auth/login" className="underline">
               Login
             </Link>
-          )}
+          )} */}
         </>
       </motion.div>
     </nav>
