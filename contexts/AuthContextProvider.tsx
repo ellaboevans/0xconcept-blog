@@ -17,14 +17,30 @@ export default function AuthContextProvider({ children }: Props) {
 
   useEffect(() => {
     const getUsername = async () => {
-      const response = await fetch(
-        'https://ox-blog-api.onrender.com/api/v1/auth/profile',
-        {
-          credentials: 'include'
+      try {
+        const response = await fetch(
+          'https://ox-blog-api.onrender.com/api/v1/auth/profile',
+          {
+            credentials: 'include'
+          }
+        )
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`)
         }
-      )
-      const userData = await response.json()
-      setUsername(userData.firstName)
+
+        const contentType = response.headers.get('content-type')
+        if (contentType && contentType.includes('application/json')) {
+          const userData = await response.json()
+          console.log(userData)
+          setUsername(userData.firstName)
+        } else {
+          throw new Error('Response is not in JSON format')
+        }
+      } catch (error) {
+        console.error('Error:', error)
+        // Handle the error, e.g., display an error message to the user
+      }
     }
     getUsername()
   }, [])
