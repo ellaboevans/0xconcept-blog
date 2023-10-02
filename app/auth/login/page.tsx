@@ -4,7 +4,6 @@ import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import Link from 'next/link'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
-import useAuthContext from '@/hooks/useAuthContext'
 type Props = {}
 
 export default function Login({}: Props) {
@@ -20,14 +19,17 @@ export default function Login({}: Props) {
       password
     }
 
-    const response = await fetch('http://localhost:3500/api/v1/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(loginData),
-      credentials: 'include'
-    })
+    const response = await fetch(
+      'https://ox-blog-api.onrender.com/api/v1/auth/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData),
+        credentials: 'include'
+      }
+    )
 
     if (!username) {
       toast.error('Oops👎! Username is required')

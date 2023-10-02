@@ -4,9 +4,12 @@ import GetSinglePost from '@/components/GetSinglePost'
 import { slugProps } from '@/types/types'
 
 const getSinglePost = async (slug: slugProps) => {
-  const post = await fetch(`http://localhost:3500/api/v1/posts/${slug}`, {
-    cache: 'no-store'
-  })
+  const post = await fetch(
+    `https://ox-blog-api.onrender.com/api/v1/posts/${slug}`,
+    {
+      cache: 'no-store'
+    }
+  )
   const singlePost = await post.json()
   return singlePost
 }

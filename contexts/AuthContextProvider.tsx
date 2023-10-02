@@ -19,9 +19,8 @@ export default function AuthContextProvider({ children }: Props) {
     const getUsername = async () => {
       try {
         const response = await fetch(
-          'http://localhost:3500/api/v1/auth/profile',
+          'https://ox-blog-api.onrender.com/api/v1/auth/profile',
           {
-            method: 'GET',
             credentials: 'include'
           }
         )

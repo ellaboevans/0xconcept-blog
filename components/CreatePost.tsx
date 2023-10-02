@@ -32,11 +32,14 @@ function CreatePost() {
     formData.set('image', files[0])
     formData.set('content', content)
 
-    const response = await fetch('http://localhost:3500/api/v1/posts', {
-      method: 'POST',
-      credentials: 'include',
-      body: formData
-    })
+    const response = await fetch(
+      'https://ox-blog-api.onrender.com/api/v1/posts',
+      {
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+      }
+    )
 
     if (response.status === 201) {
       console.log(formData)
