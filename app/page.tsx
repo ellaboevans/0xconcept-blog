@@ -2,7 +2,7 @@ import Hero from '@/components/Hero'
 import { dataProps } from '@/types/types'
 
 const getPosts = async () => {
-  const res = await fetch('http://localhost:3500/api/v1/posts', {
+  const res = await fetch('https://ox-blog-api.onrender.com/api/v1/posts', {
     cache: 'no-store'
   })
   const posts = await res.json()
