@@ -18,7 +18,7 @@ export default function AuthContextProvider({ children }: Props) {
   useEffect(() => {
     const getUsername = async () => {
       const response = await fetch(
-        'http://localhost:3500/api/v1/auth/profile',
+        'https://ox-blog-api.onrender.com/api/v1/auth/profile',
         {
           credentials: 'include'
         }
