@@ -21,7 +21,7 @@ export default function AuthContextProvider({ children }: Props) {
         const response = await fetch(
           'https://ox-blog-api.onrender.com/api/v1/auth/profile',
           {
-            credentials: 'include'
+            // credentials: 'include'
           }
         )
 
