@@ -4,6 +4,7 @@ import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import Link from 'next/link'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import useAuthContext from '@/hooks/useAuthContext'
 type Props = {}
 
 export default function Login({}: Props) {
