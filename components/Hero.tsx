@@ -34,7 +34,7 @@ export default function Hero({ data }: { data: dataProps }) {
                 key={item._id}
               >
                 <Image
-                  src={`http://localhost:3500/${item.image}`}
+                  src={`https://ox-blog-api.onrender.com/${item.image}`}
                   alt="Test"
                   className="w-full h-60 object-cover hover:grayscale transition duration-75"
                   width={305}
