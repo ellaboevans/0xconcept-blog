@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[rgb(36,36,36)] text-white">
+      <body>
         <AuthContextProvider>
           <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
 
