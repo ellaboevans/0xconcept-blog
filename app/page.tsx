@@ -29,7 +29,7 @@ const experience = [
     company: 'Freelance',
     date: 'June, 2023 - August, 2023',
     description:
-      'collaborated closely with a Frontend Engineer to create a website and electronic library platform, benefiting over 500 students. I seamlessly integrated SanityCMS with the frontend, ensuring efficient data management. Additionally, I designed API endpoints using GROQ queries for streamlined data retrieval. My contributions extended to frontend enhancements with ReactJS and Styled Components, enhancing user experience and interface design.'
+      'Collaborated closely with a Frontend Engineer to create a website and electronic library platform, benefiting over 500 students. I seamlessly integrated SanityCMS with the frontend, ensuring efficient data management. Additionally, I designed API endpoints using GROQ queries for streamlined data retrieval. My contributions extended to frontend enhancements with ReactJS and Styled Components, enhancing user experience and interface design.'
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ const projects = [
   {
     id: 3,
     title: 'Personal Blog API',
-    url: 'https://cheesa-knust.vercel.app/',
+    url: 'https://github.com/ellaboevans/personal-blog-api',
     description:
       "The Personal Blog API is a RESTful API that allows users to create, read, update, and delete blog posts. It's built with NodeJS, ExpressJS, and MongoDB."
   }
@@ -137,9 +137,19 @@ const Home = () => {
         <p
           className={`text-left text-base md:text-xl ${overusedGrotesk.variable} font-overusedGrotesk`}
         >
-          Aspiring Linguistics graduate at Kwame Nkrumah University of Science
-          and Technology with a strong passion for Computational Linguistics and
-          a frontend engineer at{' '}
+          Aspiring Linguistics graduate at{' '}
+          <span>
+            <a
+              href="https://www.knust.edu.gh/"
+              target="_blank"
+              className="underline
+            "
+            >
+              Kwame Nkrumah University of Science and Technology
+            </a>
+          </span>{' '}
+          with a strong passion for Computational Linguistics and also a
+          Frontend Engineer at{' '}
           <span>
             <a
               href="https://slightlytechie.com"
@@ -153,8 +163,13 @@ const Home = () => {
           applications. I am always looking for opportunities to learn and grow.
           <br />
           <br />
-          Feel Free to explore my work and reach out to me if you&apos;re
-          interested in working with me.
+          Feel Free to explore my work and{' '}
+          <span>
+            <a href="mailto:ellaboevans@gmail.com" className="underline">
+              reach out
+            </a>
+          </span>{' '}
+          to me if you&apos;re interested in working with me.
         </p>
       </div>
       <h1
@@ -198,10 +213,13 @@ const Home = () => {
         >
           <a
             href={project.url}
-            className={`text-lg md:text-2xl flex items-center`}
+            className={`text-lg md:text-2xl flex items-center `}
           >
             <span className="text-4xl mr-2">&bull;</span>{' '}
-            <span> {project.title} </span>{' '}
+            <span className="transition-all duration-100 hover:underline">
+              {' '}
+              {project.title}{' '}
+            </span>{' '}
             <span>
               {' '}
               <BsLink45Deg className="text-[#7c7c7c]" />{' '}
