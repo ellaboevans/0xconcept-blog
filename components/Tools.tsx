@@ -74,14 +74,16 @@ const Tools = ({ title }: { title: string }) => {
       >
         {title}
       </h1>
-      <Marquee gradient={false} speed={90} pauseOnClick={true}>
+      <Marquee gradient={false} speed={80} pauseOnClick={true}>
         {languages.map((language) => (
           <div
             className="flex flex-col ml-5 my-6 items-center"
             key={language.id}
           >
             <Image src={language.img} alt={language.title} width={70} />
-            <h4>{language.title}</h4>
+            <h4 className={`text-base md:text-lg ${overusedGrotesk.variable} font-overusedGrotesk`}>
+              {language.title}
+            </h4>
           </div>
         ))}
       </Marquee>
