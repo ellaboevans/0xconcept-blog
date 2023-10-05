@@ -13,7 +13,7 @@ export default function Footer() {
           <a href="https://linkedin.com/in/eelabo" className="underline">
             Evans Elabo
           </a>
-          - Oxconcept
+          - Oxconcept 🇬🇭
         </span>
       </h5>
       <p>&copy; {year()} All Rights Reserved.</p>
