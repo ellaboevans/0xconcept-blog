@@ -5,7 +5,7 @@ import { overusedGrotesk } from '@/utils/Fonts'
 export default function Footer() {
   return (
     <footer
-      className={` py-5 flex flex-col items-center justify-center border-t ${overusedGrotesk.variable} font-overusedGrotesk text-base max-w-[80dvw] md:max-w-[70dvw] mx-auto`}
+      className={` py-5 flex flex-col items-center justify-center border-t ${overusedGrotesk.variable} font-overusedGrotesk text-base max-w-[100dvw] md:max-w-[70dvw] mx-auto`}
     >
       <h5 className="text-center ">
         Made with <span>❤️</span> by
