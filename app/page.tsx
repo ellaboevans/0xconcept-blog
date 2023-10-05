@@ -121,13 +121,13 @@ const languages = [
 
 const Home = () => {
   return (
-    <main className="transition-all duration-75 flex flex-col max-w-[80dvw] md:max-w[70dvw] mx-auto my-6">
+    <main className="transition-all duration-75 flex flex-col max-w-[90dvw] md:max-w-[70dvw] mx-auto my-6">
       <div className="space-y-3">
-        <h1 className={`text-5xl md:text-3xl ${mochain.variable} font-mochain`}>
+        <h1 className={`text-5xl md:text-7xl ${mochain.variable} font-mochain`}>
           Evans Elabo
         </h1>
         <h5
-          className={`text-xl md:text-4xl tracking-widest ${overusedGrotesk.variable} font-overusedGrotesk`}
+          className={`text-xl md:text-2xl tracking-widest ${overusedGrotesk.variable} font-overusedGrotesk`}
         >
           Frontend Engineer
         </h5>
@@ -166,7 +166,7 @@ const Home = () => {
         <>
           <div className="my-6 space-y-2" key={item.id}>
             <h5
-              className={`text-lg md:text-4xl ${overusedGrotesk.variable} font-overusedGrotesk flex items-center`}
+              className={`text-lg md:text-2xl ${overusedGrotesk.variable} font-overusedGrotesk flex items-center`}
             >
               <span className="text-4xl mr-2">&bull;</span> {item.title} -{' '}
               <span>
@@ -198,7 +198,7 @@ const Home = () => {
         >
           <a
             href={project.url}
-            className={`text-lg md:text-4xl flex items-center`}
+            className={`text-lg md:text-2xl flex items-center`}
           >
             <span className="text-4xl mr-2">&bull;</span>{' '}
             <span> {project.title} </span>{' '}
@@ -207,11 +207,13 @@ const Home = () => {
               <BsLink45Deg className="text-[#7c7c7c]" />{' '}
             </span>
           </a>
-          <p className="text-base text-left">{project.description}</p>
+          <p className="text-base md:text-xl text-left">
+            {project.description}
+          </p>
         </div>
       ))}
       <h1
-        className={`mt-7 text-4xl md:text-3xl ${mochain.variable} font-mochain`}
+        className={`mt-12 text-4xl md:text-3xl ${mochain.variable} font-mochain`}
       >
         Languages & Tools
       </h1>
