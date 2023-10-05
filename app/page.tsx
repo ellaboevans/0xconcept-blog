@@ -46,14 +46,14 @@ const projects = [
   {
     id: 1,
     title: 'CHEESA-KNUST',
-    url: 'https://cheesa-knust.vercel.app/',
+    url: 'https://cheesa.vercel.app/',
     description:
       "Official webiste for the Chemical Engineering Students' Association, Kwame Nkrumah University & Technology."
   },
   {
     id: 2,
     title: 'Chemical Engineering E-Library',
-    url: 'https://cheesa-knust.vercel.app/',
+    url: 'https://cheesa.netlify.app/',
     description:
       'The Chemical Engineering E-Library is a digital platform that provides students with access to a wide range of resources to aid their learning. These resources include textbooks, articles, and other useful materials'
   },
@@ -139,9 +139,18 @@ const Home = () => {
         >
           Aspiring Linguistics graduate at Kwame Nkrumah University of Science
           and Technology with a strong passion for Computational Linguistics and
-          a frontend engineer with experience in building and designing
-          user-friendly web applications. I am always looking for opportunities
-          to learn and grow.
+          a frontend engineer at{' '}
+          <span>
+            <a
+              href="https://slightlytechie.com"
+              target="_blank"
+              className="underline"
+            >
+              SlightlyTechie
+            </a>
+          </span>{' '}
+          with experience in building and designing user-friendly web
+          applications. I am always looking for opportunities to learn and grow.
           <br />
           <br />
           Feel Free to explore my work and reach out to me if you&apos;re
