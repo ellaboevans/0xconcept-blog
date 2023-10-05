@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`flex items-center mx-auto justify-between bg-transparent transition-all duration-75 p-5 sticky top-0 backdrop-blur max-w-[80dvw] md:max-w-[70dvw] z-10`}
+      className={`flex items-center mx-auto justify-between bg-transparent transition-all duration-75 p-5 sticky top-0 backdrop-blur max-w-[100dvw] md:max-w-[70dvw] z-10`}
     >
       <motion.div
         initial={{
