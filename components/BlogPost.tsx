@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { dataProps } from '@/types/types'
 
-export default function Hero({ data }: { data: dataProps }) {
+export default function BlogPost({ data }: { data: dataProps }) {
   return (
     <main
       className={`transition-all duration-75 flex flex-col items-center justify-center max-w-[80dvw] md:max-w[70dvw] mx-auto mt-5`}

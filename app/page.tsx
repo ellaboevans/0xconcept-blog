@@ -3,6 +3,7 @@ import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import Experience from '@/components/Experience'
 import Project from '@/components/Project'
 import Tools from '@/components/Tools'
+import BlogRoute from '@/components/BlogRoute'
 
 const Home = () => {
   return (
@@ -57,6 +58,8 @@ const Home = () => {
           to me if you&apos;re interested in working with me.
         </p>
       </div>
+      {/* Blog Route */}
+      <BlogRoute />
       {/* Experience */}
       <Experience title="Experiences" />
       {/* Project */}

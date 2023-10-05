@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+import BlogPost from '@/components/BlogPost'
 import { dataProps } from '@/types/types'
 
 const getPosts = async () => {
@@ -13,7 +13,7 @@ export default async function Post() {
   const output: dataProps = await getPosts()
   return (
     <div>
-      <Hero data={output} />
+      <BlogPost data={output} />
     </div>
   )
 }
