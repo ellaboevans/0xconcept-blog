@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function GetSinglePost({ post }: { post: postProps }) {
   return (
     <div
-      className={` transition-all duration-75 flex flex-col items-center max-w-[80dvw] md:max-w-[70dvw] mx-auto`}
+      className={` transition-all duration-75 flex flex-col items-center max-w-[100dvw] md:max-w-[70dvw] mx-auto`}
     >
       <article className="mt-10">
         <Link href="/blog" className="text-2xl">
@@ -40,7 +40,7 @@ export default function GetSinglePost({ post }: { post: postProps }) {
             <span>{new Date(post.createdAt).toString().slice(4, 15)}</span>
           </p>
         </div>
-        <div className="w-[80dvw] md:w-[70dvw] mx-auto mt-6 mb-4 bg-slate-400 rounded-xl">
+        <div className="w-[90dvw] md:w-[70dvw] mx-auto mt-6 mb-4 bg-slate-400 rounded-xl">
           <Image
             src={`https://ox-blog-api.onrender.com/${post.image}`}
             alt="Testing"
