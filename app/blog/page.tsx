@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 const getPosts = async () => {
-  const res = await fetch('https://oxconcept.vercel/api/posts', {
+  const res = await fetch('https://oxconcept.vercel.app/api/posts', {
     cache: 'no-store'
   })
   const posts = await res.json()
