@@ -24,7 +24,7 @@ Promise<Metadata> {
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
   return {
-    title: `0xConcept | ${post.title}`,
+    title: `${post.title} | 0xConcept`,
     description: post.description,
     openGraph: {
       images: [`/${post.image}`]
