@@ -43,7 +43,7 @@ body:after {
 }
 
 .tag {
-  @apply px-3 rounded-full outline outline outline-1 outline-gray-100 text-sm outline-1 outline-gray-100 py-[0.5px];
+  @apply px-3 rounded-full border border-gray-100 text-base  py-[0.8px];
 }
 
 .input-field {
