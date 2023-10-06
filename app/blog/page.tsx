@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 const getPosts = async () => {
-  const res = await fetch('https://ox-blog-api.onrender.com/api/v1/posts', {
+  const res = await fetch('http://localhost:3000/api/posts', {
     cache: 'no-store'
   })
   const posts = await res.json()
