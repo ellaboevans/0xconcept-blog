@@ -1,6 +1,7 @@
 import React from 'react'
 import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import { HiLink } from 'react-icons/hi2'
+import { BsPerson, BsClock } from 'react-icons/bs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { dataProps } from '@/types/types'
@@ -8,13 +9,13 @@ import { dataProps } from '@/types/types'
 export default function BlogPost({ data }: { data: dataProps }) {
   return (
     <main
-      className={`transition-all duration-75 flex flex-col items-center justify-center max-w-[80dvw] md:max-w[70dvw] mx-auto mt-5`}
+      className={`transition-all duration-75 flex flex-col justify-center max-w-[100dvw] md:max-w-[70dvw] mx-auto mt-5`}
     >
       <div
         className={`text-center space-y-4 mb-5 ${mochain.variable} font-mochain`}
       >
         <p className="text-lg">The Writer | The Linguist | The Coder</p>
-        <h1 className="leading-[3.2rem] md:leading-none text-5xl font-semibold">
+        <h1 className="leading-[3.2rem] md:leading-none text-3xl md:text-5xl">
           Writings from our team
         </h1>
         <h5
@@ -24,63 +25,66 @@ export default function BlogPost({ data }: { data: dataProps }) {
           resources.
         </h5>
       </div>
-      <article className="flex flex-col items-center w-full md:max-w-[90dvw] overflow-x-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-3 mb-10 gap-5 place-items-center mt-6 ">
-          {data &&
-            data.map((item) => (
-              <Link
-                href={`/${item.slug}`}
-                className="md:w-[305px] md:h-[453px] relative"
-                key={item._id}
-              >
-                <Image
-                  src={`https://ox-blog-api.onrender.com/${item.image}`}
-                  alt="Test"
-                  className="w-full h-60 object-cover hover:grayscale transition duration-75"
-                  width={305}
-                  height={453}
-                  quality={90}
-                />
-                <div className="p-3">
-                  <p
-                    className={`text-base flex items-center space-x-2 font-bold mb-3 tracking-wider ${overusedGrotesk.variable} font-overusedGrotesk`}
-                  >
-                    {item.author && (
+      <article className="w-full grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-10 md:gap-6 my-8 px-4">
+        {data &&
+          data.map((post) => (
+            <React.Fragment key={post._id}>
+              <Image
+                width={500}
+                height={500}
+                src={`https://ox-blog-api.onrender.com/${post.image}`}
+                alt={`${post.slug}'s picture`}
+                className=" object-cover rounded-xl"
+              />
+              <div>
+                <h1 className={`text-2xl ${mochain.variable} font-mochain`}>
+                  {post.title}
+                </h1>
+                <div
+                  className={`flex items-center gap-5 ${overusedGrotesk.variable} font-overusedGrotesk`}
+                >
+                  <h4 className="text-lg flex items-center gap-2 my-3">
+                    <span>
+                      <BsPerson />
+                    </span>
+                    {post.author && (
                       <span>
-                        {' '}
-                        {item.author.firstName} {item.author.lastName}
+                        {post.author.firstName} {post.author.lastName}
                       </span>
                     )}
-
-                    <span> &bull; </span>
+                  </h4>
+                  <p className="text-lg gap-2 flex items-center">
                     <span>
-                      {new Date(item.createdAt).toString().slice(4, 15)}
+                      {' '}
+                      <BsClock />
+                    </span>{' '}
+                    <span>
+                      {new Date(post.createdAt).toString().slice(4, 15)}
                     </span>
                   </p>
-                  <div className="flex items-center justify-between">
-                    <h1
-                      className={`text-2xl font-semibold ${mochain.variable} font-mochain`}
-                    >
-                      {item.title}
-                    </h1>
-                    <HiLink />
-                  </div>
-                  <h5
-                    className={` text-lg ${overusedGrotesk.variable} pr-[0.2rem] font-overusedGrotesk`}
-                  >
-                    {item.summary}
-                  </h5>
-                  <div className="mt-3 flex items-center gap-5 ">
-                    {item.tag ? (
-                      <p className={`tag`}>{item.tag}</p>
-                    ) : (
-                      <p className={`tag`}>Test Tag</p>
-                    )}
-                  </div>
                 </div>
-              </Link>
-            ))}
-        </div>
+                <p
+                  className={`text-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
+                >
+                  {post.summary}
+                </p>
+                <div
+                  className={`flex items-center justify-between mt-4 ${overusedGrotesk.variable} font-overusedGrotesk`}
+                >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="flex items-center gap-2 text-lg "
+                  >
+                    <span>Read More</span>
+                    <span>
+                      <HiLink />
+                    </span>
+                  </Link>
+                  <span className="text-lg mr-4 tag">{post.tag}</span>
+                </div>
+              </div>
+            </React.Fragment>
+          ))}
       </article>
     </main>
   )
