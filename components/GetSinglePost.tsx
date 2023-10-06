@@ -26,11 +26,11 @@ export default function GetSinglePost({ post }: { post: postProps }) {
             <span>
               <BsPerson />
             </span>
-            {post.author && (
-              <span>
-                {post.author.firstName} {post.author.lastName}
-              </span>
-            )}
+            <span>
+              {post.username
+                ? post.username.charAt(0).toUpperCase() + post.username.slice(1)
+                : 'Writer 👨‍🎨'}
+            </span>
           </h4>
           <p className="text-lg gap-2 flex items-center">
             <span>
@@ -42,7 +42,7 @@ export default function GetSinglePost({ post }: { post: postProps }) {
         </div>
         <div className="w-[90dvw] md:w-[70dvw] mx-auto mt-6 mb-4 bg-slate-400 rounded-xl">
           <Image
-            src={`https://ox-blog-api.onrender.com/${post.image}`}
+            src={`${post.image}`}
             alt="Testing"
             className="w-full h-full object-cover rounded-xl"
             width={1000}

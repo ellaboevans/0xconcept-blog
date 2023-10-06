@@ -32,7 +32,7 @@ export default function BlogPost({ data }: { data: dataProps }) {
               <Image
                 width={500}
                 height={500}
-                src={`https://ox-blog-api.onrender.com/${post.image}`}
+                src={`${post.image}`}
                 alt={`${post.slug}'s picture`}
                 className=" object-cover rounded-xl"
               />
@@ -47,9 +47,12 @@ export default function BlogPost({ data }: { data: dataProps }) {
                     <span>
                       <BsPerson />
                     </span>
-                    {post.author && (
+                    {post.username && (
                       <span>
-                        {post.author.firstName} {post.author.lastName}
+                        {post.username
+                          ? post.username.charAt(0).toUpperCase() +
+                            post.username.slice(1)
+                          : 'Writer 👨‍🎨'}
                       </span>
                     )}
                   </h4>

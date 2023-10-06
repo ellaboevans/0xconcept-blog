@@ -5,8 +5,12 @@ import { slugProps } from '@/types/types'
 
 import type { Metadata, ResolvingMetadata } from 'next'
 
-type Props = {
-  params: { slug: string }
+const getSinglePost = async (slug: slugProps) => {
+  const post = await fetch(`http://localhost:3000/api/posts/${slug}`, {
+    cache: 'no-store'
+  })
+  const singlePost = await post.json()
+  return singlePost
 }
 
 export async function generateMetadata({
@@ -17,9 +21,7 @@ Promise<Metadata> {
   const { slug } = params
 
   // fetch data
-  const post = await fetch(
-    `https://ox-blog-api.onrender.com/api/v1/posts/${slug}`
-  ).then((res) => res.json())
+  const post = await getSinglePost(slug)
 
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
@@ -31,18 +33,6 @@ Promise<Metadata> {
     }
   }
 }
-
-const getSinglePost = async (slug: slugProps) => {
-  const post = await fetch(
-    `https://ox-blog-api.onrender.com/api/v1/posts/${slug}`,
-    {
-      cache: 'no-store'
-    }
-  )
-  const singlePost = await post.json()
-  return singlePost
-}
-
 export default async function SinglePost({ params }: ParamsProps) {
   const { slug } = params
   const post = await getSinglePost(slug)
