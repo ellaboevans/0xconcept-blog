@@ -135,7 +135,7 @@ export default function Register({}: Props) {
             className={`${overusedGrotesk.variable} font-overusedGrotesk text-xl`}
           >
             Already have an account?{' '}
-            <span className="underline font-bold">Login</span>
+            <span className="underline font-semibold">Login</span>
           </Link>
         </div>
       </form>
