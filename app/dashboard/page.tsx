@@ -22,7 +22,7 @@ function Dashboard({}: Props) {
 
   if (session.status === 'authenticated') {
     return (
-      <main className="max-w-[80dvw] md:max-w-[70dvw] mx-auto my-10 flex flex-col items-center">
+      <main className="max-w-[100dvw] md:max-w-[70dvw] mx-auto my-10 px-4 flex flex-col">
         <CreatePost />
       </main>
     )
