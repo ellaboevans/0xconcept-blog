@@ -15,12 +15,16 @@ export const metadata: Metadata = {
 
 const getPosts = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/posts', {
+    const res = await fetch('https://oxconcept.vercel.app/api/posts', {
       cache: 'no-store'
     })
-    const posts = await res.json()
-    console.log(posts)
-    return posts
+    const contentType = res.headers.get('content-type')
+    if (contentType && contentType.includes('application/json')) {
+      const posts = await res.json()
+      return posts
+    } else {
+      console.log('Error fetching data')
+    }
   } catch (error) {
     console.error('Error fetching data:', error)
   }
@@ -28,7 +32,6 @@ const getPosts = async () => {
 
 export default async function Post() {
   const output: dataProps = await getPosts()
-  console.log(output)
   return (
     <div>
       <main
