@@ -18,15 +18,10 @@ const getPosts = async () => {
     const res = await fetch('https://oxconcept.vercel.app/api/posts', {
       cache: 'no-store'
     })
-    const contentType = res.headers.get('content-type')
-    if (contentType && contentType.includes('application/json')) {
-      const posts = await res.json()
-      return posts
-    } else {
-      console.log('Error fetching data')
-    }
+    const posts = await res.json()
+    return posts
   } catch (error) {
-    console.error('Error fetching data:', error)
+    console.error('Something went wrong:', error)
   }
 }
 
