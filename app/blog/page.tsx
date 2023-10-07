@@ -1,6 +1,11 @@
+import React from 'react'
 import { Metadata } from 'next'
 import { dataProps } from '@/types/types'
-import BlogPost from '@/components/BlogPost'
+import { mochain, overusedGrotesk } from '@/utils/Fonts'
+import { HiLink } from 'react-icons/hi2'
+import { BsPerson, BsClock } from 'react-icons/bs'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '0xConcept | Blog',
@@ -9,18 +14,105 @@ export const metadata: Metadata = {
 }
 
 const getPosts = async () => {
-  const res = await fetch('http://localhost:3000/api/posts', {
-    cache: 'no-store'
-  })
-  const posts = await res.json()
-  return posts
+  try {
+    const res = await fetch('http://localhost:3000/api/posts', {
+      cache: 'no-store'
+    })
+    const posts = await res.json()
+    console.log(posts)
+    return posts
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
 }
 
 export default async function Post() {
   const output: dataProps = await getPosts()
+  console.log(output)
   return (
     <div>
-      <BlogPost data={output} />
+      <main
+        className={`transition-all duration-75 flex flex-col justify-center max-w-[100dvw] md:max-w-[70dvw] mx-auto mt-5`}
+      >
+        <div
+          className={`text-center space-y-4 mb-5 ${mochain.variable} font-mochain`}
+        >
+          <p className="text-lg">The Writer | The Linguist | The Coder</p>
+          <h1 className="leading-[3.2rem] md:leading-none text-3xl md:text-5xl">
+            Writings from our team
+          </h1>
+          <h5
+            className={`${overusedGrotesk.variable} font-overusedGrotesk text-xl tracking-normal`}
+          >
+            The latest industry news, technologies, linguistic forums and
+            resources.
+          </h5>
+        </div>
+        <article className="w-full grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-10 md:gap-6 my-8 px-4">
+          {output &&
+            output.map((post) => (
+              <React.Fragment key={post._id}>
+                <Image
+                  width={500}
+                  height={500}
+                  src={`${post.image}`}
+                  alt={`${post.slug}'s picture`}
+                  className=" object-cover rounded-xl"
+                />
+                <div>
+                  <h1 className={`text-2xl ${mochain.variable} font-mochain`}>
+                    {post.title}
+                  </h1>
+                  <div
+                    className={`flex items-center gap-5 ${overusedGrotesk.variable} font-overusedGrotesk`}
+                  >
+                    <h4 className="text-lg flex items-center gap-2 my-3">
+                      <span>
+                        <BsPerson />
+                      </span>
+                      {post.username && (
+                        <span>
+                          {post.username
+                            ? post.username.charAt(0).toUpperCase() +
+                              post.username.slice(1)
+                            : 'Writer 👨‍🎨'}
+                        </span>
+                      )}
+                    </h4>
+                    <p className="text-lg gap-2 flex items-center">
+                      <span>
+                        {' '}
+                        <BsClock />
+                      </span>{' '}
+                      <span>
+                        {new Date(post.createdAt).toString().slice(4, 15)}
+                      </span>
+                    </p>
+                  </div>
+                  <p
+                    className={`text-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
+                  >
+                    {post.summary}
+                  </p>
+                  <div
+                    className={`flex items-center justify-between mt-4 ${overusedGrotesk.variable} font-overusedGrotesk`}
+                  >
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="flex items-center gap-2 text-lg "
+                    >
+                      <span>Read More</span>
+                      <span>
+                        <HiLink />
+                      </span>
+                    </Link>
+                    <span className="text-lg mr-4 tag">{post.tag}</span>
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
+        </article>
+      </main>
     </div>
   )
 }

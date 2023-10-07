@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
 import connect from '@/utils/db'
 import Post from '@/models/Post'
+import { ParamsProps } from '@/types/types'
 
-export const GET = async (request: any, { params }) => {
+export const GET = async (request: any, { params }: ParamsProps) => {
   const { slug } = params
   try {
     connect()
