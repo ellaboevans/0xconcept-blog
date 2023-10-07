@@ -6,7 +6,7 @@ import { slugProps } from '@/types/types'
 import type { Metadata, ResolvingMetadata } from 'next'
 
 const getSinglePost = async (slug: slugProps) => {
-  const post = await fetch(`http://localhost:3000/api/posts/${slug}`, {
+  const post = await fetch(`https://oxconcept.vercel.app/api/posts/${slug}`, {
     cache: 'no-store'
   })
   const singlePost = await post.json()
