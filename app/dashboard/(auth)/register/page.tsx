@@ -4,6 +4,7 @@ import { mochain, overusedGrotesk } from '@/utils/Fonts'
 import Link from 'next/link'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import { BsEyeSlashFill, BsEyeFill } from 'react-icons/bs'
 type Props = {}
 
 export default function Register({}: Props) {
@@ -66,6 +67,11 @@ export default function Register({}: Props) {
         <div
           className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk`}
         >
+          <h1
+            className={`${mochain.variable} font-mochain text-right text-2xl md:text-4xl`}
+          >
+            Register
+          </h1>
           <label htmlFor="username" className="text-xl font-bold mb-2">
             Username
           </label>
@@ -115,12 +121,12 @@ export default function Register({}: Props) {
             className="py-2 px-3 text-lg outline-none border rounded-lg bg-transparent mb-4 "
           />
           <h1
-            className="absolute top-12 right-5 z-10 cursor-pointer"
+            className="absolute top-12 right-5 z-10 cursor-pointer text-xl"
             onClick={() =>
               setType(`${type === 'password' ? 'text' : 'password'}`)
             }
           >
-            {type === 'password' ? 'Show' : 'Hide'}
+            {type === 'password' ? <BsEyeFill /> : <BsEyeSlashFill />}
           </h1>
         </div>
         <div
@@ -140,18 +146,18 @@ export default function Register({}: Props) {
             className="py-2 px-3 text-lg outline-none border rounded-lg bg-transparent mb-4"
           />
           <h1
-            className="absolute top-12 right-5 z-10 cursor-pointer"
+            className="absolute top-12 right-5 z-10 cursor-pointer text-xl"
             onClick={() =>
               setType(`${type === 'password' ? 'text' : 'password'}`)
             }
           >
-            {type === 'password' ? 'Show' : 'Hide'}
+            {type === 'password' ? <BsEyeFill /> : <BsEyeSlashFill />}
           </h1>
         </div>
         <div
           className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk my-4`}
         >
-          <button className="py-2 px-3 text-xl outline-none rounded-lg bg-[#111] hover:bg-[#1f1f1f] hover:border transition-all duration-100">
+          <button className="py-2 px-3 text-xl outline-none rounded-lg bg-[#111] hover:bg-[#1f1f1f] transition-all duration-100">
             Register
           </button>
         </div>
