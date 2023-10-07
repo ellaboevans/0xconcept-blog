@@ -57,6 +57,12 @@ const Home = () => {
           </span>{' '}
           to me if you&apos;re interested in working with me.
         </p>
+        <br />
+        <p
+          className={`text-left text-base md:text-xl ${overusedGrotesk.variable} font-overusedGrotesk font-semibold`}
+        >
+          Fun Fact: &quot;Big money awaits in coding.&quot;
+        </p>
       </div>
       {/* Blog Route */}
       <BlogRoute />
