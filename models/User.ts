@@ -2,7 +2,7 @@ import { Schema, models, model } from 'mongoose'
 
 const userSchema = new Schema(
   {
-    name: {
+    username: {
       type: String,
       unique: true,
       required: true
@@ -24,4 +24,4 @@ const userSchema = new Schema(
 )
 
 const User = models.User || model('User', userSchema)
-module.exports = User
+export default User
