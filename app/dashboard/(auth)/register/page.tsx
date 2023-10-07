@@ -13,20 +13,46 @@ export default function Register({}: Props) {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
+  const router = useRouter()
 
-    if (password !== confirmPassword) {
-      toast.error('Password does not match')
-      return
-    }
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
 
     const data = {
       username,
       email,
       password
     }
-    console.log({ ...data })
+
+    if (data.password !== confirmPassword) {
+      toast.error('Password does not match')
+      return
+    }
+
+    try {
+      const res = await fetch(
+        'https://oxconcept.vercel.app/api/auth/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }
+      )
+
+      if (res.status === 400) {
+        toast.error('Email already exists')
+        return
+      }
+      if (res.ok) {
+        toast.success('Account created successfully')
+        router.push('/dashboard/login')
+        return
+      }
+    } catch (error) {
+      toast.error('Something went wrong')
+    }
 
     setUsername('')
     setEmail('')
@@ -89,7 +115,7 @@ export default function Register({}: Props) {
             className="py-2 px-3 text-lg outline-none border rounded-lg bg-transparent mb-4 "
           />
           <h1
-            className="absolute top-12 right-5 z-10"
+            className="absolute top-12 right-5 z-10 cursor-pointer"
             onClick={() =>
               setType(`${type === 'password' ? 'text' : 'password'}`)
             }
@@ -114,7 +140,7 @@ export default function Register({}: Props) {
             className="py-2 px-3 text-lg outline-none border rounded-lg bg-transparent mb-4"
           />
           <h1
-            className="absolute top-12 right-5 z-10"
+            className="absolute top-12 right-5 z-10 cursor-pointer"
             onClick={() =>
               setType(`${type === 'password' ? 'text' : 'password'}`)
             }
@@ -132,7 +158,7 @@ export default function Register({}: Props) {
         <div className="max-w-[100dvw] md:max-w-[45dvw] mx-auto">
           <Link
             href="/dashboard/login"
-            className={`${overusedGrotesk.variable} font-overusedGrotesk text-xl`}
+            className={`${overusedGrotesk.variable} font-overusedGrotesk text-lg`}
           >
             Already have an account?{' '}
             <span className="underline font-semibold">Login</span>
