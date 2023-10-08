@@ -7,7 +7,7 @@ import AuthProvider from '@/contexts/AuthProvider'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ox-blog-api.onrender.com'),
+  metadataBase: new URL('https://oxconcept.vercel.app'),
   title: '0xConcept | Evans Elabo',
   description:
     'Aspiring Linguistics graduate at Kwame Nkrumah University of Science and Technology with a strong passion for Computational Linguistics and a frontend engineer at SligthlyTechie with experience in building and designing web applications with ReactJS, NextJS, TailwindCSS, HTML, CSS, JavaScript, ExpressJS, NodeJS, MongoDB, SanityCMS and other web technologies.'
