@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast'
 import AuthProvider from '@/contexts/AuthProvider'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ox-blog-api.onrender.com'),
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
           <Navbar />
           {children}
+          <Analytics />
           <Footer />
         </AuthProvider>
       </body>
