@@ -42,7 +42,7 @@ const Login = () => {
   }, [session.status, router])
 
   return (
-    <div className="max-w-[100dvw] md:max-[70dvw] mx-auto my-16 md:my-10 px-4">
+    <div className="w-[100dvw] md:max-[70dvw] mx-auto my-16 md:my-10 px-4">
       <form onSubmit={handleSubmit}>
         <div
           className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk`}
