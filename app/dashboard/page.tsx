@@ -8,6 +8,7 @@ import image from '@/images/blog_image.jpg'
 import Image from 'next/image'
 import { MdDeleteForever } from 'react-icons/md'
 import useSWR from 'swr'
+import toast from 'react-hot-toast'
 type Props = {}
 
 interface PostData {
@@ -41,6 +42,25 @@ function Dashboard({}: Props) {
   const { data, mutate, error, isLoading } = useSWR(fetchUrl, fetcher)
 
   console.log(data)
+
+  const handleDelete = async (slug: string) => {
+    try {
+      const response = await fetch(
+        `https://oxconcept.vercel.app/api/posts/${slug}`,
+        {
+          method: 'DELETE'
+        }
+      )
+      if (!response.ok) {
+        toast.error('Network response was not ok')
+      } else {
+        toast.success('Post deleted successfully')
+        mutate()
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   if (session.status === 'loading') return <p>Loading...</p>
 
@@ -81,7 +101,7 @@ function Dashboard({}: Props) {
                   </h1>
                   <span
                     className="text-3xl cursor-pointer"
-                    onClick={() => console.log('post deleted!')}
+                    onClick={() => handleDelete(post.slug)}
                   >
                     <MdDeleteForever />
                   </span>

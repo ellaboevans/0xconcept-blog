@@ -1,6 +1,7 @@
 export type ParamsProps = {
   params: {
     slug: string
+    id: string
   }
 }
 
