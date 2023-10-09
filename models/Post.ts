@@ -13,14 +13,13 @@ const PostSchema = new Schema(
     },
     image: {
       type: String,
-      default: '',
-      required: true
+      default: ''
     },
     content: {
       type: String,
       required: true
     },
-    username: {
+    email: {
       type: String
     },
     tag: String,
@@ -35,7 +34,7 @@ PostSchema.index({ post: 1, slug: 1 }, { name: 'post_slug', unique: true })
 PostSchema.plugin(sluggerPlugin, {
   slugPath: 'slug',
   generateFrom: ['title'],
-  maxLength: 30,
+  maxLength: 50,
   index: 'post_slug'
 })
 
