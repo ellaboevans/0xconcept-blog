@@ -7,7 +7,7 @@ import BlogRoute from '@/components/BlogRoute'
 
 const Home = () => {
   return (
-    <main className="transition-all duration-75 flex flex-col max-w-[90dvw] md:max-w-[70dvw] mx-auto my-6">
+    <main className="transition-all duration-75 flex flex-col w-[90dvw] md:w-[68dvw] mx-auto my-6">
       <div className="space-y-3">
         <h1 className={`text-5xl md:text-7xl ${mochain.variable} font-mochain`}>
           Evans Elabo
