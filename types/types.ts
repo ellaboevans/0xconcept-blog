@@ -10,7 +10,7 @@ export type dataProps = {
   summary: string
   content: string
   slug: string
-  username: string
+  email: string
   createdAt: string
   tag: string
   image: string
@@ -22,7 +22,7 @@ export type postProps = {
   summary: string
   content: string
   slug: string
-  username: string
+  email: string
   createdAt: string
   tag: string
   image: string

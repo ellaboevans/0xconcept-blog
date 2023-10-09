@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const getPosts = async () => {
   try {
-    const res = await fetch('https://oxconcept.vercel.app/api/posts', {
+    const res = await fetch('http://localhost:3000/api/posts', {
       cache: 'no-store'
     })
     const posts = await res.json()
@@ -27,6 +27,7 @@ const getPosts = async () => {
 
 export default async function Post() {
   const output: dataProps = await getPosts()
+  console.log(output)
   return (
     <div>
       <main
@@ -46,36 +47,41 @@ export default async function Post() {
             resources.
           </h5>
         </div>
-        <article className="w-full grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-10 md:gap-6 my-8 px-4">
-          {output &&
-            output.map((post) => (
-              <React.Fragment key={post._id}>
-                <Image
+        <article className="w-full flex flex-col gap-10 md:gap-10 my-8 px-4">
+          {output?.length < 1 ? (
+            <h1>There&apos;s no posts at the moment</h1>
+          ) : (
+            output?.map((post) => (
+              <div
+                key={post._id}
+                className="even:bg-[rgb(29,29,29)] px-5 py-4 transition-all duration-100 border-l-[10px] border-l-white even:border-l-[#fd6b6b]"
+              >
+                {/* <Image
                   width={500}
                   height={500}
                   src={`${post.image}`}
                   alt={`${post.slug}'s picture`}
                   className=" object-cover rounded-xl"
-                />
+                /> */}
                 <div>
                   <h1 className={`text-2xl ${mochain.variable} font-mochain`}>
                     {post.title}
                   </h1>
                   <div
-                    className={`flex items-center gap-5 ${overusedGrotesk.variable} font-overusedGrotesk`}
+                    className={`flex items-center justify-between gap-5 ${overusedGrotesk.variable} font-overusedGrotesk`}
                   >
                     <h4 className="text-lg flex items-center gap-2 my-3">
                       <span>
                         <BsPerson />
                       </span>
-                      {post.username && (
-                        <span>
-                          {post.username
-                            ? post.username.charAt(0).toUpperCase() +
-                              post.username.slice(1)
-                            : 'Writer 👨‍🎨'}
-                        </span>
-                      )}
+                      <a
+                        href={`mailto:${post.email && post.email}`}
+                        className={`${
+                          post.email && 'text-[#fd6b6b]'
+                        } cursor-pointer`}
+                      >
+                        Writer 👨‍🎨
+                      </a>
                     </h4>
                     <p className="text-lg gap-2 flex items-center">
                       <span>
@@ -107,8 +113,9 @@ export default async function Post() {
                     <span className="text-lg mr-4 tag">{post.tag}</span>
                   </div>
                 </div>
-              </React.Fragment>
-            ))}
+              </div>
+            ))
+          )}
         </article>
       </main>
     </div>
