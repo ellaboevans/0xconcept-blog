@@ -35,7 +35,7 @@ function Dashboard({}: Props) {
   const router = useRouter()
 
   const fetchUrl = session?.data?.user?.email
-    ? `http://localhost:3000/api/posts?email=${session.data.user.email}`
+    ? `https://oxconcept.vercel.app/api/posts?email=${session.data.user.email}`
     : ''
 
   const { data, mutate, error, isLoading } = useSWR(fetchUrl, fetcher)
@@ -57,7 +57,7 @@ function Dashboard({}: Props) {
           {/* Design blog post card for here */}
           {isLoading ? (
             <p>Loading...</p>
-          ) : data.length === 0 ? (
+          ) : data?.length === 0 ? (
             <p>There is no posts for {session?.data?.user?.email}</p>
           ) : (
             data?.map((post: any) => (
