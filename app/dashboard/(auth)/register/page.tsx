@@ -31,16 +31,13 @@ export default function Register({}: Props) {
     }
 
     try {
-      const res = await fetch(
-        'https://oxconcept.vercel.app/api/auth/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }
-      )
+      const res = await fetch('http://localhost:3000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
 
       if (res.status === 400) {
         toast.error('Email already exists')
@@ -62,7 +59,7 @@ export default function Register({}: Props) {
   }
 
   return (
-    <div className="max-w-[100dvw] md:max-[70dvw] mx-auto my-10 px-4">
+    <div className="w-[100dvw] md:w-[70dvw] mx-auto my-10 px-4">
       <form onSubmit={handleSubmit}>
         <div
           className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk`}
