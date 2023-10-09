@@ -11,39 +11,44 @@ import { modules, formats } from '@/utils/QuillModules'
 in the browser*/
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 import 'react-quill/dist/quill.snow.css'
+import { useSession } from 'next-auth/react'
 
-function CreatePost() {
+function CreatePost({ mutating }: { mutating: any }) {
   const [title, setTitle] = useState('')
   const [summary, setSummary] = useState('')
   const [tag, setTag] = useState('')
-  const [files, setFiles] = useState<fileType>(null)
+  // const [files, setFiles] = useState<fileType>(null)
   const [content, setContent] = useState('')
 
   //Ref
   const formRef = useRef<HTMLFormElement>(null)
   //Router
   const router = useRouter()
+  const session = useSession()
 
   const submitNewPost = async (e: FormEvent) => {
     e.preventDefault()
 
-    const formData = new FormData()
-    formData.set('title', title)
-    formData.set('summary', summary)
-    formData.set('tag', tag)
-    formData.set('image', files[0])
-    formData.set('content', content)
+    // const formData = new FormData()
+    // formData.set('image', files[0].name)
+    // const image = formData.get('image')
+
+    const postBody = {
+      title,
+      summary,
+      tag,
+      content,
+      email: session?.data?.user?.email
+    }
+    console.log(postBody)
 
     const response = await fetch('http://localhost:3000/api/posts', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: ''
+      body: JSON.stringify(postBody)
     })
 
     if (response.status === 201) {
-      console.log(formData)
+      console.log(postBody)
       toast.success('Yayy🎉! You have successfully published a new post')
       //Reset form
       setTitle('')
@@ -53,7 +58,7 @@ function CreatePost() {
       if (formRef.current) {
         formRef.current.reset()
       }
-      router.push('/')
+      mutating()
     } else {
       toast.error('Oops👎! Something went wrong, please try again')
     }
@@ -117,7 +122,7 @@ function CreatePost() {
           className="py-2 px-3 text-lg outline-none border rounded-lg bg-transparent mb-4"
         />
       </div>
-      <div
+      {/* <div
         className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk`}
       >
         <label htmlFor="image" className="text-xl font-bold mb-2">
@@ -131,7 +136,7 @@ function CreatePost() {
           onChange={(e) => setFiles(e.target.files)}
           className="py-2 px-3 text-lg outline-none border rounded-lg bg-transparent mb-4"
         />
-      </div>
+      </div> */}
       <div
         className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk`}
       >
