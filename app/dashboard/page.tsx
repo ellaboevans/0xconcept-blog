@@ -36,7 +36,7 @@ function Dashboard({}: Props) {
   const router = useRouter()
 
   const fetchUrl = session?.data?.user?.email
-    ? `http://localhost:3000/api/posts?email=${session.data.user.email}`
+    ? `https://oxconcept.vercel.app/api/posts?email=${session.data.user.email}`
     : ''
 
   const { data, mutate, error, isLoading } = useSWR(fetchUrl, fetcher)
@@ -45,9 +45,12 @@ function Dashboard({}: Props) {
 
   const handleDelete = async (slug: string) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/posts/${slug}`, {
-        method: 'DELETE'
-      })
+      const response = await fetch(
+        `https://oxconcept.vercel.app/api/posts/${slug}`,
+        {
+          method: 'DELETE'
+        }
+      )
       if (!response.ok) {
         toast.error('Network response was not ok')
       } else {
