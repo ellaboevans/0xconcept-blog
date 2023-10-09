@@ -27,6 +27,9 @@ body {
   background-color: var(--bg-color);
   scroll-behavior: smooth;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 body:after {
