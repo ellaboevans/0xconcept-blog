@@ -10,17 +10,35 @@ import { MdDeleteForever } from 'react-icons/md'
 import useSWR from 'swr'
 type Props = {}
 
+interface PostData {
+  // Define the structure of your post data here
+  // For example:
+  title: string
+  summary: string
+  tag: string
+  image: string
+  content: string
+}
+
+// Define the fetcher function
+const fetcher = async (url: string) => {
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
+  return response.json()
+}
+
 function Dashboard({}: Props) {
   const session = useSession()
 
   const router = useRouter()
 
-  const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json())
+  const fetchUrl = session?.data?.user?.email
+    ? `http://localhost:3000/api/posts?email=${session.data.user.email}`
+    : ''
 
-  const { data, mutate, error, isLoading } = useSWR(
-    `http://localhost:3000/api/posts?email=${session?.data?.user?.email}`,
-    fetcher
-  )
+  const { data, mutate, error, isLoading } = useSWR(fetchUrl, fetcher)
 
   console.log(data)
 
