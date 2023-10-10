@@ -7,7 +7,7 @@ const projects = [
     title: 'CHEESA-KNUST',
     url: 'https://cheesa.vercel.app/',
     description:
-      "Official webiste for the Chemical Engineering Students' Association, Kwame Nkrumah University & Technology."
+      "Official website for the Chemical Engineering Students' Association, Kwame Nkrumah University & Technology."
   },
   {
     id: 2,
@@ -40,6 +40,7 @@ const Project = ({ title }: { title: string }) => {
         >
           <a
             href={project.url}
+            target="_blank"
             className={`text-lg md:text-2xl flex items-center `}
           >
             <span className="text-4xl mr-2">&bull;</span>{' '}
