@@ -15,6 +15,21 @@ export const GET = async (request: any, { params }: ParamsProps) => {
   }
 }
 
+export const PATCH = async (request: any, { params }: ParamsProps) => {
+  const { slug } = params
+  const body = await request.json()
+
+  try {
+    connect()
+
+    await Post.updateOne({ slug }, { $set: body }, { new: true })
+
+    return new NextResponse('Post Updated Successfully', { status: 200 })
+  } catch (error) {
+    return new NextResponse('Database Error', { status: 500 })
+  }
+}
+
 export const DELETE = async (request: any, { params }: ParamsProps) => {
   const { slug } = params
   try {
@@ -24,7 +39,7 @@ export const DELETE = async (request: any, { params }: ParamsProps) => {
 
     await posts.deleteOne()
 
-    return new NextResponse('Post Delete Successfully', { status: 200 })
+    return new NextResponse('Post Deleted Successfully', { status: 200 })
   } catch (error) {
     return new NextResponse('Database Error', { status: 500 })
   }
