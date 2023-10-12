@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect } from 'react'
-import { mochain, overusedGrotesk } from '@/utils/Fonts'
+import React from 'react'
+import { overusedGrotesk } from '@/utils/Fonts'
 import CreatePost from '@/components/CreatePost'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
@@ -10,16 +10,6 @@ import { MdDeleteForever } from 'react-icons/md'
 import useSWR from 'swr'
 import toast from 'react-hot-toast'
 import Loader from '@/components/Loader'
-
-interface PostData {
-  // Define the structure of your post data here
-  // For example:
-  title: string
-  summary: string
-  tag: string
-  image: string
-  content: string
-}
 
 // Define the fetcher function
 const fetcher = async (url: string) => {
