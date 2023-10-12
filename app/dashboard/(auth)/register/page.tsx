@@ -130,12 +130,12 @@ export default function Register({}: Props) {
           className={`flex flex-col max-w-[100dvw] md:max-w-[45dvw] mx-auto ${overusedGrotesk.variable} font-overusedGrotesk relative`}
         >
           <label htmlFor="confirm_password" className="text-xl font-bold mb-2">
-            Confrim Password
+            Confirm Password
           </label>
           <input
             required
             type={type}
-            id="confirm_password"
+            id="Confirm Password"
             name="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
