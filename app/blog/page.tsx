@@ -28,7 +28,6 @@ const getPosts = async () => {
 
 export default async function Post() {
   const output: dataProps = await getPosts()
-  let stats
   console.log(output)
   return (
     <div>
