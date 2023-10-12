@@ -6,6 +6,7 @@ import { HiLink } from 'react-icons/hi2'
 import { BsPerson, BsClock } from 'react-icons/bs'
 import Image from 'next/image'
 import Link from 'next/link'
+import ReadingTime from '@/components/ReadingTime'
 
 export const metadata: Metadata = {
   title: '0xConcept | Blog',
@@ -27,6 +28,7 @@ const getPosts = async () => {
 
 export default async function Post() {
   const output: dataProps = await getPosts()
+  let stats
   console.log(output)
   return (
     <div>
@@ -36,7 +38,7 @@ export default async function Post() {
         <div
           className={`text-center space-y-4 mb-5 ${mochain.variable} font-mochain`}
         >
-          <p className="text-lg">The Writer | The Linguist | The Coder</p>
+          <p className="text-lg">The Mentor | The Linguist | The Coder</p>
           <h1 className="leading-[3.2rem] md:leading-none text-3xl md:text-5xl">
             Writings from our team
           </h1>
@@ -93,6 +95,7 @@ export default async function Post() {
                       </span>
                     </p>
                   </div>
+                  <ReadingTime text={post.content} />
                   <p
                     className={`text-lg ${overusedGrotesk.variable} font-overusedGrotesk`}
                   >
