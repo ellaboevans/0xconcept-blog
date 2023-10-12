@@ -52,7 +52,10 @@ export default function GetSinglePost({ post }: { post: postProps }) {
           />
         </div> */}
         <div className="mt-5 leading-8 tracking-normal text-left">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: post.content }}
+            className="text-lg"
+          />
           <br />
         </div>
       </article>

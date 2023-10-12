@@ -17,7 +17,10 @@ const handler = NextAuth({
         connect()
 
         try {
-          const user = await User.findOne({ email: credentials?.email })
+          const user = await User.findOne({
+            email: credentials?.email,
+            name: credentials?.username
+          })
 
           if (user) {
             //checkPassword
