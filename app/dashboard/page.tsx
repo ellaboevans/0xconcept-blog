@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect } from 'react'
-import { mochain, overusedGrotesk } from '@/utils/Fonts'
+import React from 'react'
+import { overusedGrotesk } from '@/utils/Fonts'
 import CreatePost from '@/components/CreatePost'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
@@ -9,17 +9,7 @@ import Image from 'next/image'
 import { MdDeleteForever } from 'react-icons/md'
 import useSWR from 'swr'
 import toast from 'react-hot-toast'
-type Props = {}
-
-interface PostData {
-  // Define the structure of your post data here
-  // For example:
-  title: string
-  summary: string
-  tag: string
-  image: string
-  content: string
-}
+import Loader from '@/components/Loader'
 
 // Define the fetcher function
 const fetcher = async (url: string) => {
@@ -30,7 +20,7 @@ const fetcher = async (url: string) => {
   return response.json()
 }
 
-function Dashboard({}: Props) {
+function Dashboard() {
   const session = useSession()
 
   const router = useRouter()
@@ -41,8 +31,6 @@ function Dashboard({}: Props) {
 
   const { data, mutate, error, isLoading } = useSWR(fetchUrl, fetcher)
 
-  console.log(data)
-
   const handleDelete = async (slug: string) => {
     try {
       const response = await fetch(
@@ -52,7 +40,7 @@ function Dashboard({}: Props) {
         }
       )
       if (!response.ok) {
-        toast.error('Network response was not ok')
+        toast.error('Failed to Fetch Data, Try again')
       } else {
         toast.success('Post deleted successfully')
         mutate()
@@ -62,19 +50,16 @@ function Dashboard({}: Props) {
     }
   }
 
-  if (session.status === 'loading') return <p>Loading...</p>
+  if (session.status === 'loading') return <Loader />
 
   if (session.status === 'unauthenticated') {
     router?.push('/dashboard/login')
   }
 
-  console.log(session)
-
   if (session.status === 'authenticated') {
     return (
       <main className="w-[100dvw] md:w-[70dvw] mx-auto my-10 px-4 md:gap-6 flex flex-col-reverse md:flex-row justify-between">
         <div className="max-w-2xl md:max-w-[22rem] mx-auto md:mx-0 max-h-60 md:max-h-[30rem] overflow-y-auto">
-          {/* Design blog post card for here */}
           {isLoading ? (
             <p>Loading...</p>
           ) : data?.length === 0 ? (

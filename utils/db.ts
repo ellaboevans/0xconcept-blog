@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
 type Options = any
-type errorProps = string
 
 const connect = () => {
   const connectOptions: Options = { useNewUrlParser: true }

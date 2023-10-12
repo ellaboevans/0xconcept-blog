@@ -5,6 +5,7 @@ import { ParamsProps } from '@/types/types'
 
 export const GET = async (request: any, { params }: ParamsProps) => {
   const { slug } = params
+
   try {
     connect()
 
@@ -15,7 +16,7 @@ export const GET = async (request: any, { params }: ParamsProps) => {
   }
 }
 
-export const PATCH = async (request: any, { params }: ParamsProps) => {
+export const PUT = async (request: any, { params }: ParamsProps) => {
   const { slug } = params
   const body = await request.json()
 
@@ -32,6 +33,7 @@ export const PATCH = async (request: any, { params }: ParamsProps) => {
 
 export const DELETE = async (request: any, { params }: ParamsProps) => {
   const { slug } = params
+
   try {
     connect()
 
