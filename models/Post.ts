@@ -22,6 +22,9 @@ const PostSchema = new Schema(
     email: {
       type: String
     },
+    username: {
+      type: String
+    },
     tag: String,
     slug: String
   },
