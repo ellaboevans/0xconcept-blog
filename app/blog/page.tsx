@@ -7,6 +7,7 @@ import { BsPerson, BsClock } from 'react-icons/bs'
 import Image from 'next/image'
 import Link from 'next/link'
 import ReadingTime from '@/components/ReadingTime'
+import Loader from '@/components/Loader'
 
 export const metadata: Metadata = {
   title: '0xConcept | Blog',
@@ -32,7 +33,7 @@ export default async function Post() {
   return (
     <div>
       <main
-        className={`transition-all duration-75 flex flex-col justify-center max-w-[100dvw] md:max-w-[70dvw] mx-auto mt-5`}
+        className={`transition-all duration-75 flex flex-col justify-start   max-w-[100dvw] h-[100dvh] md:max-w-[70dvw] mx-auto mt-5`}
       >
         <div
           className={`text-center space-y-4 mb-5 ${mochain.variable} font-mochain`}
@@ -51,6 +52,8 @@ export default async function Post() {
         <article className="w-full flex flex-col gap-10 md:gap-10 my-8 px-4">
           {output?.length < 1 ? (
             <h1>There&apos;s no posts at the moment</h1>
+          ) : output === undefined ? (
+            <Loader />
           ) : (
             output?.map((post) => (
               <div
