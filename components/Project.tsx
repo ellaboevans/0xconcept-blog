@@ -22,6 +22,13 @@ const projects = [
     url: 'https://github.com/ellaboevans/personal-blog-api',
     description:
       "The Personal Blog API is a RESTful API that allows users to create, read, update, and delete blog posts. It's built with NodeJS, ExpressJS, and MongoDB."
+  },
+  {
+    id: 4,
+    title: 'SlightlyTechie School Platform',
+    url: 'https://school.slightlytechie.com',
+    description:
+      'A platform for students at SlightlyTechie to keep track of their learning activities and then also onboard students and admits students as well as assign class to them based on their tracks.'
   }
 ]
 
