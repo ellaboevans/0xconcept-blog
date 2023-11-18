@@ -15,7 +15,7 @@ const Home = () => {
         <h5
           className={`text-xl md:text-2xl tracking-widest ${overusedGrotesk.variable} font-overusedGrotesk`}
         >
-          Frontend Engineer
+          Software Engineer
         </h5>
       </div>
 

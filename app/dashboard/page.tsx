@@ -50,7 +50,12 @@ function Dashboard() {
     }
   }
 
-  if (session.status === 'loading') return <Loader />
+  if (session.status === 'loading')
+    return (
+      <div className="w-[100dvw] md:w-[70dvw] h-[100dvh] text-center flex items-center justify-center">
+        <Loader />
+      </div>
+    )
 
   if (session.status === 'unauthenticated') {
     router?.push('/dashboard/login')
@@ -58,7 +63,7 @@ function Dashboard() {
 
   if (session.status === 'authenticated') {
     return (
-      <main className="w-[100dvw] md:w-[70dvw] mx-auto my-10 px-4 md:gap-6 flex flex-col-reverse md:flex-row justify-between">
+      <main className="w-[100dvw] md:w-[70dvw] h-[100dvh] mx-auto my-10 px-4 md:gap-6 flex flex-col-reverse md:flex-row justify-between">
         <div className="max-w-2xl md:max-w-[22rem] mx-auto md:mx-0 max-h-60 md:max-h-[30rem] overflow-y-auto">
           {isLoading ? (
             <p>Loading...</p>
